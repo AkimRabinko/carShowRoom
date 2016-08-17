@@ -1,0 +1,47 @@
+package com.mycompany.carshowroom.dao.impl;
+
+import com.mycompany.carshowroom.dao.TestDriveDAO;
+import com.mycompany.carshowroom.entity.Manager;
+import com.mycompany.carshowroom.entity.TestDrive;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+/**
+ * Created by AkimPC on 15.08.2016.
+ */
+
+@Repository
+@Transactional
+public class TestDriveDAOImpl implements TestDriveDAO {
+    @Override
+    public TestDrive addNewTestDrive(TestDrive testDrive) {
+        return null;
+    }
+
+    @Override
+    public TestDrive editTestDrive(int testDriveId, TestDrive testDrive) {
+        return null;
+    }
+
+    @Override
+    public String removeTestDrive(int testDriveId) {
+        return null;
+    }
+
+    @Override
+    public List<TestDrive> getTestDrivesForManager(int managerId) {
+        return null;
+    }
+
+    @Override
+    public List<Manager> getManagersForCar(int carId) {
+        return null;
+    }
+
+    @Override
+    public List<TestDrive> getAllTestDrives() {
+        return null;
+    }
+}
