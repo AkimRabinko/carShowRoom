@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -27,6 +29,10 @@ public class BuyerController {
     @RequestMapping(value = "/{id}/edit" , method = RequestMethod.PUT)
     public @ResponseBody Buyer EditBuyer(@PathVariable("id") int buyerId,
                                          @RequestBody Buyer buyer) {
+        Date date;
+        date = Date.valueOf(LocalDate.now());
+        buyer.setDateOfSell(date);
+        buyer.setYearOfBuyerBirth(date);
         return buyerHandler.editBuyer(buyerId, buyer);
     }
 
@@ -36,7 +42,7 @@ public class BuyerController {
     }
 
     @RequestMapping(value = "/getall" , method = RequestMethod.GET)
-    public List<Buyer> getAllBuyers() {
+    public @ResponseBody List<Buyer> getAllBuyers() {
         return buyerHandler.getAllBuyers();
     }
 

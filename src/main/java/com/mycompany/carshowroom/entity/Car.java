@@ -1,6 +1,6 @@
 package com.mycompany.carshowroom.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -9,29 +9,47 @@ import java.io.Serializable;
  */
 
 @Entity
+@Table(name = "car")
 public class Car implements Serializable {
 
-    private long carId;
+    @Id
+    @Column(name ="CAR_ID", insertable =false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int carId;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Buyer buyer;
+
+    @Column(name = "RELEASE_YEAR")
     private int yearOfRelease;
 
-    private CarBrand carBrand;
+    @Column(name = "CAR_BRAND")
+    private String carBrand;
 
+    @Column(name = "CAR_MODEL")
     private String modelOfCar;
 
+    @Column(name = "ENGINE_CAPACITY")
     private double engineCapacity;
 
+    @Column(name = "HORSE_POWER")
     private int horsePower;
 
+    @Column(name = "CAR_DRIVE")
     private String driveOfCar;
 
+    @Column(name = "TRANSMISSION")
     private String transmission;
 
+    @Column(name = "FUEL_CONSUMPTION" )
     private double fuelConsumption;
 
-    public Car(int yearOfRelease, String modelOfCar, double engineCapacity, int horsePower,
+    public  Car() {}
+
+    public Car(int yearOfRelease, String carBrand, String modelOfCar, double engineCapacity, int horsePower,
                           String driveOfCar, String transmission, double fuelConsumption) {
         this.yearOfRelease = yearOfRelease;
+        this.carBrand = carBrand;
         this.modelOfCar = modelOfCar;
         this.engineCapacity = engineCapacity;
         this.horsePower = horsePower;
@@ -40,8 +58,16 @@ public class Car implements Serializable {
         this.fuelConsumption = fuelConsumption;
     }
 
-    public long getCarId() {
+    public int getCarId() {
         return carId;
+    }
+
+    public Buyer getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(Buyer buyer) {
+        this.buyer = buyer;
     }
 
     public int getYearOfRelease() {
@@ -52,11 +78,11 @@ public class Car implements Serializable {
         this.yearOfRelease = yearOfRelease;
     }
 
-    public CarBrand getCarBrand() {
+    public String getCarBrand() {
         return carBrand;
     }
 
-    public void setCarBrand(CarBrand carBrand) {
+    public void setCarBrand(String carBrand) {
         this.carBrand = carBrand;
     }
 

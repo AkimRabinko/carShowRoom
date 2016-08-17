@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.mycompany.carshowroom.entity.Buyer" table="buyer">
+        <id name="buyerId" type="java.lang.Integer">
+            <column name="BUYER_ID" unique="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="buyerName" type="java.lang.String">
+            <column name="BUYER_NAME" length="50" not-null="true" unique="false" />
+        </property>
+        <property name="buyerPhone" type="java.lang.String">
+            <column name="BUYER_PHONE" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="buyerEmail" type="java.lang.String">
+            <column name="BUYER_EMAIL" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="yearOfBuyerBirth" type="java.util.Date">
+            <column name="BUYER_BIRTH" not-null="false" unique="false" />
+        </property>
+        <property name="passportCode" type="java.lang.String">
+            <column name="BUYER_PASSPORT_CODE" length="50" not-null="false" unique="false" />
+        </property>
+        <set name="car" table="car" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CAR_ID" not-null="true"></column>
+            </key>
+            <one-to-many class="com.mycompany.carshowroom.entity.Car"/>
+        </set>
+        <property name="dateOfSell" type="java.util.Date">
+            <column name="SELL_DATE" not-null="false" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>

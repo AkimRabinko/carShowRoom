@@ -8,17 +8,24 @@ import java.io.Serializable;
  * @author AkimPC
  */
 @Entity
+@Table(name = "car_brand")
 public class CarBrand implements Serializable {
 
-    private long carBrandId;
+    @Id
+    @Column(name ="CAR_BRAND_ID", insertable =false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int carBrandId;
 
+    @Column(name = "BRAND_NAME")
     private String brandOfCar;
+
+    public CarBrand(){}
 
     public CarBrand (String brandOfCar) {
         this.brandOfCar = brandOfCar;
     }
 
-    public long getCarBrandId() {
+    public int getCarBrandId() {
         return carBrandId;
     }
 

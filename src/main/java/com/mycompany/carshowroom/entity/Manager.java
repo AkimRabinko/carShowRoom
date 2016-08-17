@@ -2,38 +2,52 @@ package com.mycompany.carshowroom.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  *
  * @author AkimPC
  */
 @Entity
+@Table(name = "manager")
 public class Manager implements Serializable {
 
-    private long managerId;
+    @Id
+    @Column(name = "MANAGER_ID", insertable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int managerId;
 
+    @Column(name = "MANAGER_NAME")
     private String managerName;
 
-    private String phone;
+    @Column(name = "MANAGER_PHONE")
+    private String managerPhone;
 
-    private String Email;
+    @Column(name = "MANAGER_EMAIL")
+    private String managerEmail;
 
+    @Column(name = "MANAGER_PASSPORT_CODE")
     private String pasportCode;
 
-    private String dateOfBirth;
+    @Column(name = "MANAGER_BIRTH")
+    private Date dateOfBirth;
 
+    @Column(name = "MANAGER_GENDER")
     private String gender;
 
-    public Manager(String managerName, String phone, String Email, String passportCode, String dateOfBirth, String gender) {
+    public Manager() {}
+
+    public Manager(String managerName, String managerPhone, String managerEmail, String passportCode,
+                   Date dateOfBirth, String gender) {
         this.managerName = managerName;
-        this.phone = phone;
-        this.Email =Email;
+        this.managerPhone = managerPhone;
+        this.managerEmail =managerEmail;
         this.pasportCode = passportCode;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
     }
 
-    public long getManagerId() {
+    public int getManagerId() {
         return managerId;
     }
 
@@ -45,20 +59,20 @@ public class Manager implements Serializable {
         this.managerName = managerName;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getManagerPhone() {
+        return managerPhone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setManagerPhone(String managerPhone) {
+        this.managerPhone = managerPhone;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getManagerEmail() {
+        return managerEmail;
     }
 
-    public void setEmail(String email) {
-        Email = email;
+    public void setManagerEmail(String managerEmail) {
+        managerEmail = managerEmail;
     }
 
     public String getPasportCode() {
@@ -69,11 +83,11 @@ public class Manager implements Serializable {
         this.pasportCode = pasportCode;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

@@ -6,6 +6,8 @@ import com.mycompany.carshowroom.handler.CarBrandHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by AkimPC on 15.08.2016.
  */
@@ -24,5 +26,15 @@ public class CarBrandHandlerImpl implements CarBrandHandler {
     @Override
     public String removeBrand(int brandId) {
         return carBrandDAO.removeBrand(brandId);
+    }
+
+    @Override
+    public List<CarBrand> getAllBrands() {
+        return carBrandDAO.getAllBrands();
+    }
+
+    @Override
+    public CarBrand getBrandById(int brandId) {
+        return carBrandDAO.getBrandById(brandId);
     }
 }

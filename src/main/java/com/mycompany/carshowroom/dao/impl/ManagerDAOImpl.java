@@ -2,6 +2,8 @@ package com.mycompany.carshowroom.dao.impl;
 
 import com.mycompany.carshowroom.dao.ManagerDAO;
 import com.mycompany.carshowroom.entity.Manager;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,9 +16,14 @@ import java.util.List;
 @Repository
 @Transactional
 public class ManagerDAOImpl implements ManagerDAO {
+
+    @Autowired
+    SessionFactory sessionFactory;
+
     @Override
     public Manager addNewManager(Manager manager) {
-        return null;
+        sessionFactory.getCurrentSession().save("manager", manager);
+        return manager;
     }
 
     @Override
@@ -31,11 +38,11 @@ public class ManagerDAOImpl implements ManagerDAO {
 
     @Override
     public List<Manager> getAllManagers() {
-        return null;
+        return sessionFactory.getCurrentSession().createCriteria(Manager.class).list();
     }
 
     @Override
     public Manager getSingleManager(int managerId) {
-        return null;
+        return (Manager)sessionFactory.getCurrentSession().get(Manager.class, managerId);
     }
 }

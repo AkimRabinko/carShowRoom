@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.mycompany.carshowroom.entity.Manager" table="manager">
+        <id name="managerId" type="java.lang.Integer">
+            <column name="MANGER_ID" unique="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="managerName" type="java.lang.String">
+            <column name="MANAGER_NAME" length="50" not-null="true" unique="false" />
+        </property>
+        <property name="managerPhone" type="java.lang.String">
+            <column name="MANAGER_PHONE" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="managerEmail" type="java.lang.String">
+            <column name="MANAGER_EMAIL" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="pasportCode" type="java.lang.String">
+            <column name="MANAGER_PASSPORT_CODE" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="dateOfBirth" type="java.util.Date">
+            <column name="MANAGER_BIRTH" not-null="false" unique="false" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="MANAGER_GENDER" length="50" not-null="false" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -8,20 +8,28 @@ import java.io.Serializable;
  * @author AkimPC
  */
 @Entity
+@Table(name = "test_drive")
 public class TestDrive implements Serializable {
 
-    private Long testDriveId;
+    @Id
+    @Column(name = "TEST_DRIVE_ID", insertable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int testDriveId;
 
-     private Car testDriveCar;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Car testDriveCar;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Manager testDriveManager;
+
+    public TestDrive() {}
 
     public TestDrive(Car testDriveCar, Manager testDriveManager) {
         this.testDriveCar = testDriveCar;
         this.testDriveManager = testDriveManager;
     }
 
-    public Long getTestDriveId() {
+    public int getTestDriveId() {
         return testDriveId;
     }
 

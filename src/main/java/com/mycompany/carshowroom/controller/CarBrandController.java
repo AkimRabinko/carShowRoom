@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by AkimPC on 15.08.2016.
  */
@@ -25,6 +27,16 @@ public class CarBrandController {
     @RequestMapping(value = "/{id}/removebrand", method = RequestMethod.POST)
     public @ResponseBody String removeBrand(@PathVariable("id") int brandId) {
         return carBrandHandler.removeBrand(brandId);
+    }
+
+    @RequestMapping(value = "/getall", method = RequestMethod.GET)
+    public @ResponseBody List<CarBrand> getAllBrands() {
+        return carBrandHandler.getAllBrands();
+    }
+
+    @RequestMapping(value = "/{id}/get", method = RequestMethod.GET)
+    public @ResponseBody CarBrand getBrandById(@PathVariable("id") int brandId) {
+        return carBrandHandler.getBrandById(brandId);
     }
 
 }
