@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.mycompany.carshowroom.entity.Car" table="car">
+        <id name="carId" type="java.lang.Integer">
+            <column name="CAR_ID" unique="true"/>
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="buyer" class="com.mycompany.carshowroom.entity.Buyer" fetch="select">
+            <column name="BUYER_ID" not-null="false"></column>
+        </many-to-one>
+        <property name="yearOfRelease" type="java.lang.Integer">
+            <column name="RELEASE_YEAR" not-null="false"/>
+        </property>
+        <property name="carBrand" type="java.lang.String">
+            <column name="CAR_BRAND" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="modelOfCar" type="java.lang.String">
+            <column name="CAR_MODEL" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="engineCapacity" type="java.lang.Double">
+            <column name="ENGINE_CAPACITY" not-null="false" unique="false" />
+        </property>
+        <property name="horsePower" type="java.lang.Integer">
+            <column name="HORSE_POWER" not-null="false" unique="false" />
+        </property>
+        <property name="driveOfCar" type="java.lang.String">
+            <column name="CAR_DRIVE" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="transmission" type="java.lang.String">
+            <column name="TRANSMISSION" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="fuelConsumption" type="java.lang.Double">
+            <column name="FUEL_CONSUMPTION" not-null="false" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>

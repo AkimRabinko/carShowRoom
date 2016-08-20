@@ -1,0 +1,91 @@
+ul.site-navigation {
+    height: 50px;
+    background-color: #25064c;
+}
+ul.site-navigation li {
+    list-style-type: none;
+    font-size: 18px;
+    font-family: "Modern";
+    line-height: 50px;
+    height: 50px;
+    float:left;
+    width:182px
+}
+ul.site-navigation li a {
+    display: block;
+    color: #fff;
+    text-decoration:none;
+    padding: 0 10px;
+    border-right: 1px solid #f4f4f4;
+    border-left: 1px solid #f4f4f4;
+    -webkit-transition: background-color 0.15s linear;
+}
+ul.site-navigation li a:hover {
+    background-color: #471b77;
+}
+ul.site-navigation li ul {
+    z-index:1000;
+    position: relative;
+    background-color: #25064c;
+    display:none;
+    padding: 0px;
+}
+
+ul.site-navigation li ul li {
+    height: auto;
+    width: auto;
+    float: none;
+    padding: 0px;
+
+}
+ul.site-navigation li:hover ul {
+    display:block;
+}
+
+img {
+    margin-top: 10px;
+    width: 70px;
+    height: 70px;
+    margin-left: 45px;
+}
+
+.emblemName {
+    font-size: 24px;
+    font-family: "Modern";
+    text-align: center;
+}
+
+.carsInfo {
+     font-family: "Modern" ;
+     font-size: 14pt;
+     color: #fbfff9;
+     width: 300px;
+     height: 20px;
+     background: #25064c;
+     padding: 5px;
+ }
+
+.carImage {
+    width: 310px;
+    height: 200px;
+    background: #25064c;
+    border: solid 1px #fbfff9;
+    display: inline-block;
+}
+
+.carBlock {
+    width:300px;
+    margin: 25px;
+    display: inline-block;
+}
+
+button  {
+    padding-left: 10px;
+    font-family: "Modern" ;
+    border: hidden;
+    font-size: 14pt;
+    color: #fbfff9;
+    width: 200px;
+    height: 40px;
+    background: #25064c;
+}

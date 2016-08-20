@@ -2,6 +2,8 @@ package com.mycompany.carshowroom.dao.impl;
 
 import com.mycompany.carshowroom.dao.CarDAO;
 import com.mycompany.carshowroom.entity.Car;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,9 +16,14 @@ import java.util.List;
 @Repository
 @Transactional
 public class CarDAOImpl implements CarDAO {
+
+    @Autowired
+    SessionFactory sessionFactory;
+
     @Override
     public Car addNewCar(Car car) {
-        return null;
+        sessionFactory.getCurrentSession().save("car", car);
+        return car;
     }
 
     @Override
@@ -31,11 +38,11 @@ public class CarDAOImpl implements CarDAO {
 
     @Override
     public List<Car> getAllCars() {
-        return null;
+        return sessionFactory.getCurrentSession().createCriteria(Car.class).list();
     }
 
     @Override
     public Car getSingleCar(int carId) {
-        return null;
+        return (Car) sessionFactory.getCurrentSession().get(Car.class, carId);
     }
 }

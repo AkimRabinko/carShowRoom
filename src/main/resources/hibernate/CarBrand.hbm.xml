@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.mycompany.carshowroom.entity.CarBrand" table="car_brand">
+        <id name="carBrandId" type="java.lang.Integer">
+            <column name="CAR_BRAND_ID" unique="true"/>
+            <generator class="assigned" />
+        </id>
+        <property name="brandOfCar" type="java.lang.String">
+            <column name="BRAND_NAME" length="50" not-null="false" unique="false"/>
+        </property>
+    </class>
+</hibernate-mapping>

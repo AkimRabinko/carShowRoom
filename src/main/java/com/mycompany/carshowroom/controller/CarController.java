@@ -19,10 +19,8 @@ public class CarController {
     @Autowired
     private CarHandler carHandler;
 
-    @RequestMapping(value = "/{brand}/addnew", method = RequestMethod.POST)
-    public @ResponseBody Car addNewCar(@PathVariable("brand") String brand,
-                                       @RequestBody Car car) {
-        car.setCarBrand(brand);
+    @RequestMapping(value = "/addnew", method = RequestMethod.POST)
+    public @ResponseBody Car addNewCar(@RequestBody Car car) {
         return carHandler.addNewCar(car);
     }
 
