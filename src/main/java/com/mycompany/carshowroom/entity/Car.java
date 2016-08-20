@@ -46,7 +46,7 @@ public class Car implements Serializable {
 
     public  Car() {}
 
-    public Car(int yearOfRelease, String carBrand, String modelOfCar, double engineCapacity, int horsePower,
+    public Car( String carBrand, String modelOfCar,int yearOfRelease, double engineCapacity, int horsePower,
                           String driveOfCar, String transmission, double fuelConsumption) {
         this.yearOfRelease = yearOfRelease;
         this.carBrand = carBrand;

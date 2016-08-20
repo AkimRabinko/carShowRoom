@@ -1,0 +1,100 @@
+ul.site-navigation {
+    height: 50px;
+    background-color: #25064c;
+    border-radius: 10px;
+}
+ul.site-navigation li {
+    list-style-type: none;
+    font-size: 18px;
+    font-family: "Modern";
+    line-height: 50px;
+    height: 50px;
+    float:left;
+    width:182px
+}
+ul.site-navigation li a {
+    display: block;
+    color: #fff;
+    text-decoration:none;
+    padding: 0 10px;
+    border-right: 1px solid #f4f4f4;
+    border-left: 1px solid #f4f4f4;
+    -webkit-transition: background-color 0.15s linear;
+
+}
+ul.site-navigation li a:hover {
+    background-color: #471b77;
+}
+ul.site-navigation li ul {
+    background-color: #25064c;
+    display:none;
+    padding: 0px;
+    z-index:1000;
+    position: relative;
+}
+
+ul.site-navigation li ul li {
+    height: auto;
+    width: auto;
+    float: none;
+    padding: 0px;
+
+}
+ul.site-navigation li:hover ul {
+    display:block;
+}
+
+img {
+    margin-top: 10px;
+    width: 70px;
+    height: 70px;
+    margin-left: 45px;
+}
+
+.emblemName {
+    font-size: 24px;
+    font-family: "Modern";
+    text-align: center;
+}
+
+.addingForm {
+    left: 50%;
+    width: 600px;
+    position: relative;
+    margin-left: -675px;
+}
+
+.text {
+    font-family: "Modern" ;
+    border-radius:7px;
+    font-size: 15pt;
+    color: #fbfff9;
+    width: 600px;
+    height: 30px;
+    background: #25064c;
+    padding: 5px;
+    border: solid 1px #fbfff9;
+    float: left;
+}
+
+input {
+    border: 0;
+    font-size: 15pt;
+    background-color: #471b77;
+    color: #fbfff9;
+    font-family: "Modern"
+}
+
+button {
+    border: 0;
+    font-size: 16pt;
+    background-color: #25064c;
+    color: #fbfff9;
+    font-family: "Modern"
+}
+
+.inputField {
+    color: #fbfff9;
+    background: #25064c;
+    float: right;
+}
